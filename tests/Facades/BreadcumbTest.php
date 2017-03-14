@@ -1,6 +1,6 @@
 <?php
 
-namespace Mateusjatenee\Breadcumb\Tests;
+namespace Mateusjatenee\Breadcumb\Tests\Facades;
 
 use Mateusjatenee\Breadcumb\BreadcumbGenerator;
 use Mateusjatenee\Breadcumb\Facades\Breadcumb;

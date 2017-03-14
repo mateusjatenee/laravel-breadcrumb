@@ -13,7 +13,7 @@ class CubeDashboardGeneratorTest extends TestCase
         parent::setUp();
 
         $this->app->bind(BreadcumbGenerator::class, function ($app) {
-            return new CubeDashboardGenerator;
+            return $app->make(CubeDashboardGenerator::class);
         });
     }
     /** @test */

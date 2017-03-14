@@ -3,10 +3,18 @@
 namespace Mateusjatenee\Breadcumb;
 
 use Illuminate\Support\Collection;
+use Mateusjatenee\Breadcumb\Breadcumb;
 
 class BreadcumbGenerator
 {
     protected $items;
+
+    protected $breadcumb;
+
+    public function __construct(Breadcumb $breadcumb)
+    {
+        $this->breadcumb = $breadcumb;
+    }
 
     public function set(string $key, $value = null)
     {
