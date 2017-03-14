@@ -3,6 +3,8 @@
 namespace Mateusjatenee\Breadcumb;
 
 use Illuminate\Support\Collection;
+use Mateusjatenee\Breadcumb\Contracts\BreadcumbDriverContract;
+use Mateusjatenee\Breadcumb\Exceptions\NotDriverException;
 
 class Breadcumb
 {
@@ -19,9 +21,9 @@ class Breadcumb
             $breadcumb = app()->make($breadcumb);
         }
 
-        $this->drivers->push([
-            $name => $breadcumb,
-        ]);
+        $this->validateClass($breadcumb);
+
+        $this->drivers[$name] = $breadcumb;
 
         return $this;
     }
@@ -29,5 +31,12 @@ class Breadcumb
     public function getDrivers()
     {
         return $this->drivers;
+    }
+
+    public function validateClass($breadcumb)
+    {
+        if (!$breadcumb instanceof BreadcumbDriverContract) {
+            throw new NotDriverException($breadcumb);
+        }
     }
 }

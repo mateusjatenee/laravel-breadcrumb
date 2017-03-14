@@ -2,7 +2,7 @@
 
 namespace Mateusjatenee\Breadcumb\Contracts;
 
-interface BreadcumbGeneratorContract
+interface BreadcumbDriverContract
 {
     public function generate();
 }

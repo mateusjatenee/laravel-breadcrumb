@@ -2,9 +2,7 @@
 
 namespace Mateusjatenee\Breadcumb\Tests\Fakes;
 
-use Mateusjatenee\Breadcumb\Contracts\BreadcumbDriverContract;
-
-class FakeDriver implements BreadcumbDriverContract
+class FakeDriverWithNoInterface
 {
     public function generate()
     {

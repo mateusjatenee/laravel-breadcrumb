@@ -3,9 +3,9 @@
 namespace Mateusjatenee\Breadcumb\Generators;
 
 use Mateusjatenee\Breadcumb\BreadcumbGenerator;
-use Mateusjatenee\Breadcumb\Contracts\BreadcumbGeneratorContract;
+use Mateusjatenee\Breadcumb\Contracts\BreadcumbDriverContract;
 
-class CubeDashboardGenerator extends BreadcumbGenerator implements BreadcumbGeneratorContract
+class CubeDashboardGenerator extends BreadcumbGenerator implements BreadcumbDriverContract
 {
     public function generate($value = null)
     {
