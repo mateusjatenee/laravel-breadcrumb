@@ -24,7 +24,7 @@ HTML;
 
         $generator->set('users.library.new_user');
 
-        $this->assertEquals($generator->generate(), $expected_html);
+        $this->assertEquals($expected_html, $generator->generate());
 
         $expected_html = <<<HTML
 <ol class="breadcrumb"><li class="active"><span>Users</span></li></ol>
