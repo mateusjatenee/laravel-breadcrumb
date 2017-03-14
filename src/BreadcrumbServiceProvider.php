@@ -22,6 +22,6 @@ class BreadcrumbServiceProvider extends ServiceProvider
             return $app->make(BreadcrumbGenerator::class);
         });
 
-        app('breadcrumb')->addDriver('cube', CubeDashboardGenerator::class);
+        app('breadcrumb')->addDriver('cube', CubeDashboardGenerator::class)->setDriver('cube');
     }
 }
