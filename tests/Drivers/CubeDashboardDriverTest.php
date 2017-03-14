@@ -4,7 +4,7 @@ namespace Mateusjatenee\Breadcrumb\Tests\Generators;
 
 use Mateusjatenee\Breadcrumb\Tests\TestCase;
 
-class CubeDashboardGeneratorTest extends TestCase
+class CubeDashboardDriverTest extends TestCase
 {
     public function setUp()
     {

@@ -5,7 +5,8 @@ namespace Mateusjatenee\Breadcrumb;
 use Illuminate\Support\ServiceProvider;
 use Mateusjatenee\Breadcrumb\Breadcrumb;
 use Mateusjatenee\Breadcrumb\BreadcrumbGenerator;
-use Mateusjatenee\Breadcrumb\Generators\CubeDashboardGenerator;
+use Mateusjatenee\Breadcrumb\Drivers\BootstrapDriver;
+use Mateusjatenee\Breadcrumb\Drivers\CubeDashboardDriver;
 
 class BreadcrumbServiceProvider extends ServiceProvider
 {
@@ -22,6 +23,9 @@ class BreadcrumbServiceProvider extends ServiceProvider
             return $app->make(BreadcrumbGenerator::class);
         });
 
-        app('breadcrumb')->addDriver('cube', CubeDashboardGenerator::class)->setDriver('cube');
+        app('breadcrumb')
+            ->addDriver('cube', CubeDashboardDriver::class)
+            ->addDriver('bootstrap', BootstrapDriver::class)
+            ->setDriver('bootstrap');
     }
 }

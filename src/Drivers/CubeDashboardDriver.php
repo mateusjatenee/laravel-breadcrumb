@@ -1,11 +1,11 @@
 <?php
 
-namespace Mateusjatenee\Breadcrumb\Generators;
+namespace Mateusjatenee\Breadcrumb\Drivers;
 
 use Mateusjatenee\Breadcrumb\BreadcrumbGenerator;
 use Mateusjatenee\Breadcrumb\Contracts\BreadcrumbDriverContract;
 
-class CubeDashboardGenerator extends BreadcrumbGenerator implements BreadcrumbDriverContract
+class CubeDashboardDriver extends BreadcrumbGenerator implements BreadcrumbDriverContract
 {
     public function generate($value = null)
     {

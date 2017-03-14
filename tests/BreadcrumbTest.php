@@ -30,8 +30,8 @@ class BreadcumbTest extends TestCase
     /** @test */
     public function it_boots_with_default_drivers()
     {
-        $this->assertEquals(1, $this->breadcrumb->getDrivers()->count());
-        $this->assertEquals($this->breadcrumb->getDrivers()->first(), $this->breadcrumb->currentDriver());
+        $this->assertEquals(2, $this->breadcrumb->getDrivers()->count());
+        $this->assertEquals($this->breadcrumb->getDrivers()->last(), $this->breadcrumb->currentDriver());
     }
 
     /** @test */
