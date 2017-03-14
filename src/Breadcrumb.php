@@ -4,11 +4,14 @@ namespace Mateusjatenee\Breadcrumb;
 
 use Illuminate\Support\Collection;
 use Mateusjatenee\Breadcrumb\Contracts\BreadcrumbDriverContract;
+use Mateusjatenee\Breadcrumb\Exceptions\DriverNotFoundException;
 use Mateusjatenee\Breadcrumb\Exceptions\NotDriverException;
 
 class Breadcrumb
 {
     protected $drivers = [];
+
+    protected $currentDriver = null;
 
     public function __construct()
     {
@@ -33,9 +36,13 @@ class Breadcrumb
         return $this;
     }
 
-    public function setDriver($name)
+    public function setDriver($name, $overwrite = true)
     {
-        $this->currentDriver = $this->drivers[$name];
+        if ($this->currentDriver && !$overwrite) {
+            return $this;
+        }
+
+        $this->currentDriver = $name;
 
         return $this;
     }
@@ -54,7 +61,11 @@ class Breadcrumb
 
     public function currentDriver()
     {
-        return $this->currentDriver;
+        if (!isset($this->drivers[$this->currentDriver])) {
+            throw new DriverNotFoundException($this->currentDriver);
+        }
+
+        return $this->drivers[$this->currentDriver];
     }
 
     public function validateClass($breadcrumb)

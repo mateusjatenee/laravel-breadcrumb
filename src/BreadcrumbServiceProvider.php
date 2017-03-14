@@ -26,6 +26,6 @@ class BreadcrumbServiceProvider extends ServiceProvider
         app('breadcrumb')
             ->addDriver('cube', CubeDashboardDriver::class)
             ->addDriver('bootstrap', BootstrapDriver::class)
-            ->setDriver('bootstrap');
+            ->setDriver('bootstrap', false);
     }
 }

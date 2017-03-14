@@ -2,6 +2,7 @@
 
 namespace Mateusjatenee\Breadcrumb\Tests;
 
+use Mateusjatenee\Breadcrumb\Exceptions\DriverNotFoundException;
 use Mateusjatenee\Breadcrumb\Exceptions\NotDriverException;
 use Mateusjatenee\Breadcrumb\Tests\Fakes\FakeDriver;
 use Mateusjatenee\Breadcrumb\Tests\Fakes\FakeDriverWithNoInterface;
@@ -43,5 +44,14 @@ class BreadcumbTest extends TestCase
         $this->expectExceptionMessage('The object ' . get_class(new $class) . ' does not implement the BreadcrumbDriverContract interface.');
 
         $this->breadcrumb->addDriver('foo', $class);
+    }
+
+    /** @test */
+    public function it_throws_an_exception_if_the_driver_does_not_exist()
+    {
+        $this->expectException(DriverNotFoundException::class);
+        $this->expectExceptionMessage('The driver foo is not registered or does not exist');
+
+        $this->breadcrumb->setDriver('foo')->currentDriver();
     }
 }
