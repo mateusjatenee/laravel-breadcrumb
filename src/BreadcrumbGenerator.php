@@ -23,6 +23,27 @@ class BreadcrumbGenerator
         return $this->items->toArray();
     }
 
+    public function generate($value = null)
+    {
+        if (!is_null($value)) {
+            $this->set($value);
+        }
+
+        $html = $this->getParentTags();
+
+        $string = '';
+
+        foreach ($this->items as $key => $item) {
+            if ($key == $this->items->count() - 1) {
+                $string .= str_replace('{item}', $item, $this->getLastItemTags());
+            } else {
+                $string .= str_replace('{item}', $item, $this->getItemTags());
+            }
+        }
+
+        return str_replace('{content}', $string, $html);
+    }
+
     protected function parseWord($word)
     {
         $words = explode('_', $word);

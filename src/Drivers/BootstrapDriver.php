@@ -7,23 +7,18 @@ use Mateusjatenee\Breadcrumb\Contracts\BreadcrumbDriverContract;
 
 class BootstrapDriver extends BreadcrumbGenerator implements BreadcrumbDriverContract
 {
-    public function generate($value = null)
+    public function getParentTags()
     {
-        if (!is_null($value)) {
-            $this->set($value);
-        }
+        return '<ol class="breadcrumb">{content}</ol>';
+    }
 
-        $html = '<ol class="breadcrumb">{content}</ol>';
+    public function getItemTags()
+    {
+        return '<li><span>{item}</span></li>';
+    }
 
-        $string = '';
-        foreach ($this->items as $key => $item) {
-            if ($key == $this->items->count() - 1) {
-                $string .= '<li class="active"><span>' . $item . '</span></li>';
-            } else {
-                $string .= '<li><span>' . $item . '</span></li>';
-            }
-        }
-
-        return str_replace('{content}', $string, $html);
+    public function getLastItemTags()
+    {
+        return '<li class="active"><span>{item}</span></li>';
     }
 }
