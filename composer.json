@@ -1,5 +1,5 @@
 {
-    "name": "mateusjatenee/laravel-breadcumb",
+    "name": "mateusjatenee/laravel-breadcrumb",
     "description": "PHP project.",
     "keywords": [],
     "license": "MIT",
@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Mateusjatenee\\Breadcumb\\": "src/"
+            "Mateusjatenee\\Breadcrumb\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mateusjatenee\\Breadcumb\\Tests\\": "tests/"
+            "Mateusjatenee\\Breadcrumb\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",

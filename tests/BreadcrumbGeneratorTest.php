@@ -1,6 +1,6 @@
 <?php
 
-namespace Mateusjatenee\Breadcumb\Tests;
+namespace Mateusjatenee\Breadcrumb\Tests;
 
 class BreadcumbGeneratorTest extends TestCase
 {
@@ -8,7 +8,7 @@ class BreadcumbGeneratorTest extends TestCase
     /** @test */
     public function it_sets_the_correct_depth()
     {
-        $generator = app('breadcumbGenerator');
+        $generator = app('breadcrumbGenerator');
 
         $generator->set('users.show');
 
@@ -20,7 +20,7 @@ class BreadcumbGeneratorTest extends TestCase
     /** @test */
     public function it_transforms_underlines_into_spaces()
     {
-        $generator = app('breadcumbGenerator');
+        $generator = app('breadcrumbGenerator');
 
         $generator->set('users.new_user');
 

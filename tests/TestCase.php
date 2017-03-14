@@ -1,9 +1,9 @@
 <?php
 
-namespace Mateusjatenee\Breadcumb\Tests;
+namespace Mateusjatenee\Breadcrumb\Tests;
 
-use Mateusjatenee\Breadcumb\BreadcumbServiceProvider;
-use Mateusjatenee\Breadcumb\Facades\Breadcumb;
+use Mateusjatenee\Breadcrumb\BreadcrumbServiceProvider;
+use Mateusjatenee\Breadcrumb\Facades\Breadcumb;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
@@ -21,7 +21,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            BreadcumbServiceProvider::class,
+            BreadcrumbServiceProvider::class,
         ];
     }
 

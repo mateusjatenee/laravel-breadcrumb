@@ -1,6 +1,6 @@
 <?php
 
-namespace Mateusjatenee\Breadcumb\Tests\Fakes;
+namespace Mateusjatenee\Breadcrumb\Tests\Fakes;
 
 class FakeDriverWithNoInterface
 {

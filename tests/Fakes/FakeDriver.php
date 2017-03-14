@@ -1,10 +1,10 @@
 <?php
 
-namespace Mateusjatenee\Breadcumb\Tests\Fakes;
+namespace Mateusjatenee\Breadcrumb\Tests\Fakes;
 
-use Mateusjatenee\Breadcumb\Contracts\BreadcumbDriverContract;
+use Mateusjatenee\Breadcrumb\Contracts\BreadcrumbDriverContract;
 
-class FakeDriver implements BreadcumbDriverContract
+class FakeDriver implements BreadcrumbDriverContract
 {
     public function generate()
     {

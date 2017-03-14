@@ -1,20 +1,13 @@
 <?php
 
-namespace Mateusjatenee\Breadcumb;
+namespace Mateusjatenee\Breadcrumb;
 
 use Illuminate\Support\Collection;
-use Mateusjatenee\Breadcumb\Breadcumb;
+use Mateusjatenee\Breadcrumb\Breadcrumb;
 
-class BreadcumbGenerator
+class BreadcrumbGenerator
 {
     protected $items;
-
-    protected $breadcumb;
-
-    public function __construct(Breadcumb $breadcumb)
-    {
-        $this->breadcumb = $breadcumb;
-    }
 
     public function set(string $key, $value = null)
     {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Mateusjatenee\Breadcumb\Facades;
+namespace Mateusjatenee\Breadcrumb\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Breadcumb extends Facade
+class Breadcrumb extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'breadcumbGenerator';
+        return 'breadcrumb';
     }
 }

@@ -1,10 +1,8 @@
 <?php
 
-namespace Mateusjatenee\Breadcumb\Tests\Generators;
+namespace Mateusjatenee\Breadcrumb\Tests\Generators;
 
-use Mateusjatenee\Breadcumb\BreadcumbGenerator;
-use Mateusjatenee\Breadcumb\Generators\CubeDashboardGenerator;
-use Mateusjatenee\Breadcumb\Tests\TestCase;
+use Mateusjatenee\Breadcrumb\Tests\TestCase;
 
 class CubeDashboardGeneratorTest extends TestCase
 {
@@ -12,9 +10,7 @@ class CubeDashboardGeneratorTest extends TestCase
     {
         parent::setUp();
 
-        $this->app->bind(BreadcumbGenerator::class, function ($app) {
-            return $app->make(CubeDashboardGenerator::class);
-        });
+        app('breadcrumb')->setDriver('cube');
     }
     /** @test */
     public function it_generates_the_correct_html()
@@ -23,7 +19,7 @@ class CubeDashboardGeneratorTest extends TestCase
 <ol class="breadcrumb"><li><span>Users</span></li><li class="active"><span>Show</span></li></ol>
 HTML;
 
-        $generator = app('breadcumbGenerator');
+        $generator = app('breadcrumb');
 
         $generator->set('users.show');
 
@@ -33,7 +29,7 @@ HTML;
 <ol class="breadcrumb"><li class="active"><span>Users</span></li></ol>
 HTML;
 
-        $generator = app('breadcumbGenerator');
+        $generator = app('breadcrumb');
 
         $generator->set('users');
 
