@@ -2,6 +2,7 @@
 
 namespace Mateusjatenee\Breadcrumb\Tests\Generators;
 
+use Mateusjatenee\Breadcrumb\Facades\Breadcrumb;
 use Mateusjatenee\Breadcrumb\Tests\TestCase;
 
 class BootstrapDriverTest extends TestCase
@@ -34,5 +35,6 @@ HTML;
         $generator->set('users');
 
         $this->assertEquals($expected_html, $generator->generate());
+        $this->assertEquals($expected_html, Breadcrumb::generate());
     }
 }
