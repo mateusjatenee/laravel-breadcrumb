@@ -25,21 +25,13 @@ class BreadcrumbGenerator
 
     public function generate($value = null)
     {
-        if (!is_null($value)) {
+        if ($value) {
             $this->set($value);
         }
 
         $html = $this->getParentTags();
 
-        $string = '';
-
-        foreach ($this->items as $key => $item) {
-            if ($key == $this->items->count() - 1) {
-                $string .= str_replace('{item}', $item, $this->getLastItemTags());
-            } else {
-                $string .= str_replace('{item}', $item, $this->getItemTags());
-            }
-        }
+        $string = $this->buildString();
 
         return str_replace('{content}', $string, $html);
     }
@@ -55,5 +47,21 @@ class BreadcrumbGenerator
         }
 
         return $string;
+    }
+
+    protected function buildString()
+    {
+        $string = '';
+
+        foreach ($this->items as $key => $item) {
+            $string .= str_replace('{item}', $item, $this->getTag($key, $this->items));
+        }
+
+        return $string;
+    }
+
+    protected function getTag(int $key, Collection $items)
+    {
+        return $key === ($items->count() - 1) ? $this->getLastItemTags() : $this->getItemTags();
     }
 }
